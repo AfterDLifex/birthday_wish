@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
   <title>Rishika ✦ eternal story</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:opsz,wght@14..32,300;400;500;600&family=Dancing+Script:wght@500;700&family=Noto+Sans+Mono:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Italianno&family=Manrope:wght@400;500;600&family=Noto+Sans+Mono:wght@300&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -512,44 +512,709 @@
         height: 200px;
       }
     }
+
+    /* ===== ENHANCED RESPONSIVE / MOBILE UX ===== */
+    html { scroll-behavior: smooth; }
+    body { -webkit-tap-highlight-color: transparent; }
+
+    .wrapper {
+      width: min(100%, 1280px);
+      padding-inline: clamp(10px, 3vw, 24px);
+    }
+
+    .glass-panel {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .tab-strip {
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      background: rgba(10, 12, 22, 0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 8px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.25);
+    }
+
+    .tab {
+      min-height: 46px;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .story-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 360px);
+      align-items: center;
+      gap: clamp(24px, 5vw, 70px);
+      max-width: 1100px;
+      margin: 0 auto 35px;
+    }
+
+    .hero-copy { text-align: left; }
+    .hero-copy .soul-name,
+    .hero-copy .sub-date { text-align: left; }
+
+    .hero-orbit {
+      width: min(100%, 330px);
+      aspect-ratio: 1;
+      margin: auto;
+      border-radius: 50%;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle, rgba(212,168,83,.16) 0 8%, transparent 9%),
+        radial-gradient(circle, rgba(100,120,255,.14), transparent 60%);
+      border: 1px solid rgba(212,168,83,.28);
+      box-shadow: inset 0 0 60px rgba(130,140,255,.08), 0 0 60px rgba(130,140,255,.08);
+      animation: orbitPulse 5s ease-in-out infinite;
+    }
+
+    .hero-orbit::before,
+    .hero-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border: 1px solid rgba(212,168,83,.22);
+      border-radius: 50%;
+      transform: rotate(25deg) scaleX(.65);
+    }
+
+    .hero-orbit::after { transform: rotate(-25deg) scaleX(.65); }
+
+    .hero-orbit-core {
+      font-size: clamp(42px, 8vw, 68px);
+      filter: drop-shadow(0 0 22px rgba(212,168,83,.8));
+      z-index: 2;
+    }
+
+    @keyframes orbitPulse {
+      50% { transform: scale(1.025); }
+    }
+
+    .story-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 800px;
+      margin: 25px auto 35px;
+    }
+
+    .highlight-card {
+      padding: 18px 14px;
+      border-radius: 22px;
+      text-align: center;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .highlight-card b {
+      display: block;
+      color: #e7d39e;
+      font-family: 'Cinzel', serif;
+      margin-bottom: 5px;
+    }
+
+    .highlight-card span {
+      color: #aaa7c9;
+      font-size: 12px;
+    }
+
+    .timeline {
+      max-width: 820px;
+      margin: 45px auto;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 5px;
+      bottom: 5px;
+      width: 1px;
+      background: linear-gradient(#d4a853, rgba(155,163,255,.15), #d4a853);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 25px 20px;
+    }
+
+    .timeline-item::before {
+      content: "✦";
+      position: absolute;
+      left: -1px;
+      top: 0;
+      transform: translateX(-50%);
+      color: #e4c77e;
+      text-shadow: 0 0 15px #d4a853;
+    }
+
+    .timeline-item h3 {
+      font-family: 'Cinzel', serif;
+      color: #d7d6ff;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      color: #aaa8c8;
+      line-height: 1.7;
+      font-size: .92rem;
+    }
+
+    .love-meter {
+      max-width: 650px;
+      margin: 35px auto;
+      padding: 22px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(212,168,83,.18);
+      text-align: center;
+    }
+
+    .meter-track {
+      height: 10px;
+      border-radius: 99px;
+      background: #191d30;
+      overflow: hidden;
+      margin: 14px 0 8px;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 92%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #727eff, #d4a853, #ef9fb5);
+      box-shadow: 0 0 18px rgba(212,168,83,.45);
+    }
+
+    .meter-label {
+      display: flex;
+      justify-content: space-between;
+      color: #8f8cad;
+      font-size: 12px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+      font-family: 'Cinzel', serif;
+      color: #e1c68b;
+      letter-spacing: clamp(2px, .6vw, 4px);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+    }
+
+    .section-heading p {
+      color: #9895b7;
+      margin-top: 8px;
+      font-size: .9rem;
+    }
+
+    .game-card {
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .game-card > * { max-width: 100%; }
+
+    .memory-grid { width: min(100%, 250px); }
+    .word-search-grid { width: min(100%, 330px); }
+
+    .vow-seal {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(212,168,83,.45);
+      box-shadow: 0 0 40px rgba(212,168,83,.12);
+      font-size: 38px;
+    }
+
+    .memory-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 850px;
+      margin: 30px auto;
+    }
+
+    .memory-note {
+      padding: 20px;
+      min-height: 150px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(40,44,76,.65), rgba(20,23,38,.8));
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .memory-note .note-icon { font-size: 28px; }
+    .memory-note h3 { margin: 12px 0 8px; color: #d8d7ff; font-family: 'Cinzel', serif; }
+    .memory-note p { color: #9f9cb9; line-height: 1.6; font-size: .88rem; }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 12px;
+      max-width: 900px;
+      margin: 30px auto;
+    }
+
+    .promise-card {
+      padding: 18px 10px;
+      border-radius: 22px;
+      text-align: center;
+      background: rgba(36,41,81,.65);
+      border: 1px solid rgba(155,163,255,.15);
+      transition: .25s;
+    }
+
+    .promise-card:hover { transform: translateY(-4px); border-color: rgba(212,168,83,.5); }
+    .promise-card b { display: block; margin-top: 7px; color: #ddd9ff; }
+
+    .floating-actions {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 120;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .floating-action {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(155,163,255,.35);
+      background: rgba(16,19,32,.78);
+      color: #e1ddff;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.3);
+    }
+
+    .floating-action:hover { transform: translateY(-2px); }
+
+    @media (max-width: 900px) {
+      .story-hero { grid-template-columns: 1fr; }
+      .hero-copy, .hero-copy .soul-name, .hero-copy .sub-date { text-align: center; }
+      .hero-orbit { width: min(62vw, 280px); }
+      .promise-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 700px) {
+      .wrapper { padding: 8px 8px 55px; }
+      .glass-panel { border-radius: 24px; padding: 10px 10px 28px; }
+
+      .tab-strip {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        margin-bottom: 25px;
+      }
+      .tab-strip::-webkit-scrollbar { display: none; }
+      .tab { flex: 0 0 auto; padding: 10px 14px; font-size: 13px; }
+
+      .soul-name { font-size: clamp(2.1rem, 12vw, 3.4rem); letter-spacing: 3px; }
+      .sub-date { font-size: 10px; letter-spacing: 2px; line-height: 1.6; }
+      .story-para { font-size: .98rem; line-height: 1.8; text-align: left; }
+      .quote-block { font-size: 1rem; padding: 17px 18px; margin: 25px auto; }
+      .signature { font-size: 2rem; }
+
+      .story-highlights { grid-template-columns: 1fr; }
+      .highlight-card { padding: 14px; }
+
+      .games-wrapper { grid-template-columns: 1fr; gap: 16px; }
+      .game-card { border-radius: 26px; padding: 20px 12px; }
+
+      .memory-grid { max-width: 220px; gap: 7px; }
+      .mem-cell { border-radius: 13px; font-size: 22px; }
+
+      .catch-zone { height: min(52vw, 210px); min-height: 170px; border-radius: 25px; }
+
+      .word-search-grid {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        gap: 2px;
+        padding: 7px;
+      }
+      .ws-cell { border-radius: 4px; font-size: clamp(9px, 3.3vw, 13px); }
+
+      .constellation-map { height: 200px; border-radius: 25px; }
+      .const-star { width: 13px; height: 13px; }
+
+      .vow-title { font-size: 1.65rem; }
+      .vow-block p { font-size: 1rem !important; }
+      .memory-cards { grid-template-columns: 1fr; }
+      .promise-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .floating-actions { right: 10px; bottom: 10px; }
+      .floating-action { width: 42px; height: 42px; }
+    }
+
+    @media (max-width: 380px) {
+      .tab { padding-inline: 11px; font-size: 12px; }
+      .promise-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .gift { font-size: 82px !important; }
+      .gift-msg { max-width: calc(100vw - 35px); padding: 12px 18px; font-size: 11px; letter-spacing: 2px; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+
+    /* ===== SVG ICON SYSTEM ===== */
+    .icon {
+      width: 1.15em;
+      height: 1.15em;
+      display: inline-block;
+      vertical-align: -0.18em;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-fill {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .tab .icon { width: 18px; height: 18px; }
+    .game-title .icon { width: 22px; height: 22px; }
+    .vow-seal .icon { width: 52px; height: 52px; }
+    .highlight-card .icon { width: 25px; height: 25px; color: #e7d39e; }
+    .promise-card .icon { width: 28px; height: 28px; color: #d4cfff; }
+    .floating-action .icon { width: 19px; height: 19px; }
+    .gift-svg {
+      width: clamp(82px, 18vw, 140px);
+      height: clamp(82px, 18vw, 140px);
+      color: #d4a853;
+      filter: drop-shadow(0 0 25px rgba(212,168,83,.75));
+      animation: floatGift 2.2s infinite alternate;
+      cursor: pointer;
+    }
+    .star-svg {
+      width: 1.1em;
+      height: 1.1em;
+      vertical-align: -.15em;
+      fill: currentColor;
+    }
+
+
+    /* ===== EDITORIAL ROMANTIC TYPOGRAPHY ===== */
+    :root {
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-ui: 'Manrope', system-ui, sans-serif;
+      --font-script: 'Italianno', 'Brush Script MT', cursive;
+    }
+
+    body {
+      font-family: var(--font-body);
+      letter-spacing: .01em;
+    }
+
+    .soul-name,
+    .game-title,
+    .vow-title,
+    .section-heading h2,
+    .timeline-item h3,
+    .memory-note h3,
+    .highlight-card b {
+      font-family: var(--font-display);
+    }
+
+    .soul-name {
+      font-size: clamp(3.4rem, 10vw, 6.4rem);
+      font-weight: 600;
+      letter-spacing: clamp(4px, 1.2vw, 12px);
+      line-height: .88;
+    }
+
+    .sub-date {
+      font-family: var(--font-ui);
+      font-weight: 500;
+      letter-spacing: clamp(2px, .55vw, 5px);
+      text-transform: uppercase;
+    }
+
+    .story-para {
+      font-family: var(--font-body);
+      font-weight: 300;
+      letter-spacing: .015em;
+    }
+
+    .story-para strong {
+      font-weight: 600;
+    }
+
+    .story-para em {
+      font-family: var(--font-display);
+      font-size: 1.12em;
+      font-weight: 600;
+    }
+
+    .quote-block {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: .01em;
+    }
+
+    .signature {
+      font-family: var(--font-script);
+      font-size: clamp(2.5rem, 6vw, 3.8rem);
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .tab,
+    .glow-btn,
+    .btn-mini,
+    .mini-stats,
+    .gift-msg,
+    .meter-label,
+    .promise-card,
+    .highlight-card span {
+      font-family: var(--font-ui);
+    }
+
+    .tab {
+      font-weight: 500;
+      letter-spacing: .02em;
+    }
+
+    .glow-btn {
+      font-weight: 600;
+      letter-spacing: .12em;
+    }
+
+    .game-title {
+      font-size: clamp(1.35rem, 3vw, 1.65rem);
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .section-heading h2,
+    .vow-title {
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .vow-block > p {
+      font-family: var(--font-display) !important;
+      font-size: clamp(1.3rem, 3vw, 1.65rem) !important;
+      font-weight: 500;
+      line-height: 1.65 !important;
+    }
+
+    .vow-block > div[style*="Dancing Script"] {
+      font-family: var(--font-script) !important;
+      font-size: clamp(2.5rem, 7vw, 4rem) !important;
+      line-height: 1.05;
+    }
+
+    .timeline-item h3 {
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .memory-note h3 {
+      font-weight: 600;
+      font-size: 1.35rem;
+    }
+
+    .memory-note p,
+    .timeline-item p {
+      font-family: var(--font-body);
+      font-weight: 300;
+    }
+
+    .promise-card b {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+    }
+
+    .footer-deco {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      letter-spacing: clamp(2px, .6vw, 5px);
+    }
+
+    @media (max-width: 700px) {
+      .soul-name {
+        font-size: clamp(3rem, 17vw, 4.5rem);
+        letter-spacing: 3px;
+      }
+
+      .story-para {
+        font-size: 1rem;
+      }
+
+      .quote-block {
+        font-size: 1.2rem;
+      }
+    }
+
   </style>
 </head>
 <body>
+
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="i-book" viewBox="0 0 24 24">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/>
+        <path d="M4 5.5v16M8 7h8M8 11h8"/>
+      </symbol>
+      <symbol id="i-game" viewBox="0 0 24 24">
+        <path d="M7 8h10a5 5 0 0 1 4.8 6.4l-1 3.2a2.5 2.5 0 0 1-4.5.7L15 16H9l-1.3 2.3a2.5 2.5 0 0 1-4.5-.7l-1-3.2A5 5 0 0 1 7 8z"/>
+        <path d="M7 11v5M4.5 13.5h5M16.5 12.5h.01M19 15h.01"/>
+      </symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24">
+        <path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5z"/>
+        <path d="M19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7z"/>
+      </symbol>
+      <symbol id="i-memory" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="7" height="7" rx="1"/>
+        <rect x="13" y="13" width="7" height="7" rx="1"/>
+        <path d="M13 4h7v7M4 13v7h7"/>
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9z"/>
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="10.8" cy="10.8" r="6.8"/>
+        <path d="m16 16 5 5"/>
+      </symbol>
+      <symbol id="i-constellation" viewBox="0 0 24 24">
+        <circle cx="5" cy="6" r="1.5"/>
+        <circle cx="17.5" cy="5" r="1.5"/>
+        <circle cx="13" cy="14" r="1.5"/>
+        <circle cx="20" cy="19" r="1.5"/>
+        <circle cx="5" cy="19" r="1.5"/>
+        <path d="m6.2 6.8 9.9-1M6 7.2l6 5.5m2.1 2.4 4.7 3m-6.5-2.8-6.2 3.1"/>
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24">
+        <path d="M19.5 15.2A8 8 0 0 1 8.8 4.5 8.5 8.5 0 1 0 19.5 15.2z"/>
+      </symbol>
+      <symbol id="i-fire" viewBox="0 0 24 24">
+        <path d="M13.2 2.8c.5 4-2.9 4.7-2.4 8.2.2 1.4 1 2.2 2 2.8-.1-2.4 1.2-4.2 2.7-5.3 2.1 2.2 3.1 4.3 3.1 6.7a6.6 6.6 0 1 1-13.2 0c0-3.2 1.8-5.7 4.3-7.6-.2 2.2.4 3.4 1.3 4.1-.3-4.1 1.8-6.4 2.2-8.9z"/>
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path d="M20.8 8.8c0 5.5-8.8 10.5-8.8 10.5S3.2 14.3 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6z"/>
+      </symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+      </symbol>
+      <symbol id="i-gift" viewBox="0 0 24 24">
+        <path d="M3 10h18v11H3zM2 7h20v3H2zM5 10v11M19 10v11M12 7v14"/>
+        <path d="M12 7H8.5A2.5 2.5 0 1 1 11 4.5L12 7zM12 7h3.5A2.5 2.5 0 1 0 13 4.5L12 7z"/>
+      </symbol>
+      <symbol id="i-infinity" viewBox="0 0 24 24">
+        <path d="M7.5 16.5C4.5 16.5 3 14.2 3 12s1.5-4.5 4.5-4.5c4.5 0 4.5 9 9 9 3 0 4.5-2.2 4.5-4.5s-1.5-4.5-4.5-4.5c-4.5 0-4.5 9-9 9z"/>
+      </symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24">
+        <path d="M12 19V5M6 11l6-6 6 6"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <div class="cosmos"></div>
   <div class="nebula"></div>
   <canvas id="fxCanvas"></canvas>
 
   <!-- INTRO -->
   <div id="intro">
-    <div class="gift" id="giftBtn">🎁</div>
+    <div class="gift" id="giftBtn"><svg class="gift-svg" viewBox="0 0 24 24" aria-label="Open the story"><use href="#i-gift"/></svg></div>
     <div class="gift-msg">TAP TO UNFOLD THE ETERNAL STORY ✦</div>
+  </div>
+
+  <div class="floating-actions">
+    <button class="floating-action" id="topBtn" aria-label="Back to top"><svg class="icon"><use href="#i-arrow-up"/></svg></button>
+    <button class="floating-action" id="sparkBtn" aria-label="Create stars"><svg class="icon"><use href="#i-sparkle"/></svg></button>
   </div>
 
   <div class="wrapper">
     <div class="glass-panel">
       <div class="tab-strip">
-        <button class="tab active" data-tab="story"><span>📖</span> Story</button>
-        <button class="tab" data-tab="games"><span>🎮</span> Games</button>
-        <button class="tab" data-tab="vow"><span>💫</span> Vow</button>
-        <button class="tab" data-tab="memory"><span>🌌</span> Memory</button>
-        <button class="tab" data-tab="constellation"><span>✨</span> Constellation</button>
+        <button class="tab active" data-tab="story"><svg class="icon"><use href="#i-book"/></svg> Story</button>
+        <button class="tab" data-tab="games"><svg class="icon"><use href="#i-game"/></svg> Games</button>
+        <button class="tab" data-tab="vow"><svg class="icon"><use href="#i-sparkle"/></svg> Vow</button>
+        <button class="tab" data-tab="memory"><svg class="icon"><use href="#i-memory"/></svg> Memory</button>
+        <button class="tab" data-tab="constellation"><svg class="icon"><use href="#i-constellation"/></svg> Constellation</button>
       </div>
 
       <!-- STORY TAB -->
       <div id="story" class="tab-pane show">
-        <h1 class="soul-name">RISHIKA</h1>
-        <div class="sub-date">23 AUGUST 2002 — STARLIGHT WEAVES</div>
-        <p class="story-para"><strong>Every soul carries a signature.</strong> Yours is etched in constellations — a gentle force that pulls the universe toward you.</p>
+        <div class="story-hero">
+          <div class="hero-copy">
+            <h1 class="soul-name">RISHIKA</h1>
+            <div class="sub-date">23 AUGUST 2002 — STARLIGHT WEAVES</div>
+            <p class="story-para"><strong>Every soul carries a signature.</strong> Yours is etched in constellations — a gentle force that pulls the universe toward you.</p>
+            <button class="glow-btn" id="magicBtn"><svg class="icon"><use href="#i-sparkle"/></svg> IGNITE THE SKY <svg class="icon"><use href="#i-sparkle"/></svg></button>
+          </div>
+          <div class="hero-orbit" aria-label="A glowing constellation">
+            <div class="hero-orbit-core"><svg class="icon" style="width:68px;height:68px;stroke:#e8d6a6;"><use href="#i-moon"/></svg></div>
+          </div>
+        </div>
+
+        <div class="story-highlights">
+          <div class="highlight-card"><svg class="icon"><use href="#i-infinity"/></svg><b>∞</b><span>One endless story</span></div>
+          <div class="highlight-card"><svg class="icon"><use href="#i-sparkle"/></svg><b>5</b><span>Sacred promises</span></div>
+          <div class="highlight-card"><svg class="icon"><use href="#i-star"/></svg><b>23.08</b><span>A star-marked day</span></div>
+        </div>
+
         <p class="story-para">We were never strangers. In the <em>first dream</em>, we walked on a bridge of moons. In the second, we were two sunflowers turning toward the same dawn.</p>
         <p class="story-para">I have searched for you in the silence of galaxies, in the rhythm of sacred chants, in the laughter of forgotten temples. <strong>Always the same flame.</strong></p>
+
         <div class="quote-block">“The stars aren’t random, Rishika. <br> They are footprints of the path that leads to you.”</div>
+
+        <div class="timeline">
+          <div class="timeline-item"><h3>✦ The First Spark</h3><p>A quiet beginning that somehow felt familiar.</p></div>
+          <div class="timeline-item"><h3>✦ The Shared Sky</h3><p>Two paths, one horizon, and countless little moments worth remembering.</p></div>
+          <div class="timeline-item"><h3>✦ The Promise</h3><p>Not a perfect story — a story chosen again and again.</p></div>
+        </div>
+
+        <div class="love-meter">
+          <strong style="font-family:'Cinzel';color:#dedbff;">THE ETERNAL METER</strong>
+          <div class="meter-track"><div class="meter-fill"></div></div>
+          <div class="meter-label"><span>still beginning</span><span>∞ beyond measure</span></div>
+        </div>
+
         <div class="signature">— Sayan 🜲 eternal</div>
-        <button class="glow-btn" id="magicBtn">💫 IGNITE THE SKY 💫</button>
       </div>
 
       <!-- GAMES TAB (all major games) -->
       <div id="games" class="tab-pane">
-        <h2 style="text-align:center;color:#e1c68b;font-family:'Cinzel';letter-spacing:4px;margin-bottom:10px;">✦ GAMES OF US ✦</h2>
+        <div class="section-heading">
+          <h2>✦ GAMES OF US ✦</h2>
+          <p>Little challenges, tiny victories, and a little bit of magic.</p>
+        </div>
         <div class="games-wrapper">
           <!-- memory -->
           <div class="game-card">
@@ -562,7 +1227,7 @@
           <div class="game-card">
             <div class="game-title">⭐ Catch the Light</div>
             <div class="catch-zone" id="catchZone"></div>
-            <div class="mini-stats"><span>⭐ <span id="starScore">0</span>/12</span><span>miss <span id="starMiss">0</span></span></div>
+            <div class="mini-stats"><span><svg class="star-svg" viewBox="0 0 24 24"><use href="#i-star"/></svg> <span id="starScore">0</span>/12</span><span>miss <span id="starMiss">0</span></span></div>
             <button class="btn-mini" id="catchReset">new game</button>
           </div>
           <!-- word search -->
@@ -587,20 +1252,34 @@
       <!-- VOW TAB -->
       <div id="vow" class="tab-pane">
         <div class="vow-block">
+          <div class="vow-seal"><svg class="icon"><use href="#i-infinity"/></svg></div>
           <h2 class="vow-title">The Vow of Constellations</h2>
           <p style="font-size:1.2rem;line-height:2;color:#d4d0f0;">I will find you in every lifetime — as the moon finds the tide, as the morning finds the sky. <br> You are my eternal north star.</p>
-          <div style="font-family:'Dancing Script';font-size:2.8rem;color:#d4a853;margin:40px 0;">"You are the poem my soul recites."</div>
-          <div style="letter-spacing:8px;color:#9290b5;">RISHIKA ✦ SAYAN — ETERNAL</div>
+          <div style="font-family:'Dancing Script';font-size:clamp(2rem,6vw,2.8rem);color:#d4a853;margin:40px 0;">"You are the poem my soul recites."</div>
+          <div class="promise-grid">
+            <div class="promise-card"><svg class="icon"><use href="#i-moon"/></svg><b>Protect</b></div>
+            <div class="promise-card"><svg class="icon"><use href="#i-sparkle"/></svg><b>Remember</b></div>
+            <div class="promise-card"><svg class="icon"><use href="#i-fire"/></svg><b>Cherish</b></div>
+            <div class="promise-card"><svg class="icon"><use href="#i-star"/></svg><b>Guide</b></div>
+            <div class="promise-card"><svg class="icon"><use href="#i-heart"/></svg><b>Love</b></div>
+          </div>
+          <div style="letter-spacing:clamp(3px,1vw,8px);color:#9290b5;">RISHIKA ✦ SAYAN — ETERNAL</div>
         </div>
       </div>
 
       <!-- MEMORY TAB (extended story memory) -->
       <div id="memory" class="tab-pane">
-        <div style="max-width:800px;margin:30px auto;text-align:center;">
-          <h2 style="font-family:'Cinzel';color:#ddc38e;font-size:2rem;">Fragments of us</h2>
-          <p style="color:#c0bce2;margin:25px 0;">In the garden of our memories, every flower has your name. <br> <em>Remember when we watched the meteor shower?</em> That was the moment I knew time was just a formality.</p>
-          <p style="color:#c0bce2;font-size:1.1rem;">Under the star of August 23rd, a soul promised to love without condition — and I became the keeper of that promise.</p>
-          <div style="border:1px solid rgba(212,168,83,0.5);border-radius:50px;padding:18px;background:#1b1e32;max-width:600px;margin:20px auto;color:#e6cf9c;">“The universe conspired to make us meet.”</div>
+        <div style="max-width:950px;margin:30px auto;text-align:center;">
+          <div class="section-heading">
+            <h2>Fragments of Us</h2>
+            <p>Some memories deserve their own constellation.</p>
+          </div>
+          <div class="memory-cards">
+            <div class="memory-note"><div class="note-icon"><svg class="icon"><use href="#i-constellation"/></svg></div><h3>The Night Sky</h3><p>Remember when we watched the meteor shower? For a moment, time felt like a formality.</p></div>
+            <div class="memory-note"><div class="note-icon"><svg class="icon"><use href="#i-sun"/></svg></div><h3>Same Dawn</h3><p>Two sunflowers turning toward the same light — different paths, one warmth.</p></div>
+            <div class="memory-note"><div class="note-icon"><svg class="icon"><use href="#i-heart"/></svg></div><h3>The Promise</h3><p>Under the star of August 23rd, a promise became a keeper of memories.</p></div>
+          </div>
+          <div class="quote-block">“The universe conspired to make us meet.”</div>
         </div>
       </div>
 
@@ -733,7 +1412,7 @@
         if (!gameOn) return;
         const star = document.createElement('div');
         star.className = 'catch-star';
-        star.textContent = '⭐';
+        star.innerHTML = '<svg class="star-svg" viewBox="0 0 24 24" aria-label="star"><use href="#i-star"/></svg>';
         star.style.left = Math.random() * 75 + '%';
         star.style.top = Math.random() * 75 + '%';
         star.style.fontSize = (20 + Math.random() * 28) + 'px';
@@ -826,7 +1505,7 @@
               document.getElementById('wsFound').textContent = foundWords.length;
               renderWordChips();
               if (foundWords.length === wordList.length) {
-                document.getElementById('wordInfo').textContent = '✨ ALL FOUND ✨';
+                const wordInfo = document.querySelector('#wordChips'); if (wordInfo) wordInfo.setAttribute('aria-label', 'All words found');
                 for(let i=0;i<5;i++) spawnExplosion(innerWidth/2, innerHeight/2, 40);
               }
             }
@@ -873,7 +1552,7 @@
             if (star.classList.contains('done')) return;
             star.classList.add('done');
             starsAligned.push(i);
-            document.getElementById('constHint').textContent = `🌟 ${starsAligned.length}/5`;
+            document.getElementById('constHint').textContent = `✦ ${starsAligned.length}/5`;
             if (starsAligned.length === 5) {
               spawnExplosion(innerWidth/2, innerHeight/2, 120);
             }
@@ -883,6 +1562,28 @@
       }
       createConstellation();
       document.getElementById('constReset').addEventListener('click', ()=>{ createConstellation(); document.getElementById('constHint').textContent='connect 5 stars'; });
+
+      // floating actions
+      document.getElementById('topBtn').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      document.getElementById('sparkBtn').addEventListener('click', () => {
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            spawnExplosion(
+              innerWidth * (0.15 + Math.random() * 0.7),
+              innerHeight * (0.15 + Math.random() * 0.55),
+              35
+            );
+          }, i * 120);
+        }
+      });
+
+      // Keep the experience comfortable on touch devices.
+      window.addEventListener('resize', () => {
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+      });
 
       // ambient fireworks
       setInterval(() => { if(Math.random()>0.7) spawnExplosion(innerWidth*0.2+Math.random()*innerWidth*0.6, innerHeight*0.2+Math.random()*innerHeight*0.3, 20); }, 4000);
